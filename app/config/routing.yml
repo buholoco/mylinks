@@ -1,0 +1,4 @@
+buho_mylinks:
+    resource: "@BuhoMylinksBundle/Resources/config/routing.yml"
+    prefix:   /
+

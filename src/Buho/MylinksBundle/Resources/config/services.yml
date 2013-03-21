@@ -1,0 +1,7 @@
+parameters:
+#    buho_mylinks.example.class: Buho\MylinksBundle\Example
+
+services:
+#    buho_mylinks.example:
+#        class: %buho_mylinks.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

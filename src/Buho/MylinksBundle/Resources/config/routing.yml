@@ -1,0 +1,3 @@
+buho_mylinks_homepage:
+    pattern:  /
+    defaults: { _controller: BuhoMylinksBundle:Home:index }

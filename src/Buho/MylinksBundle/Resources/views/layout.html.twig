@@ -7,6 +7,8 @@
       <link rel="stylesheet" href="{{ asset('bundles/buhomylinks/css/blueprint/ie.css') }}" type="text/css" media="screen, projection">
     <![endif]-->
     <link href="{{ asset('bundles/buhomylinks/css/custom/layout.css') }}" type="text/css" rel="stylesheet" media="screen, projection">
+    <link href='http://fonts.googleapis.com/css?family=Risque' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Peralta' rel='stylesheet' type='text/css'>
 {% endblock stylesheets %}
 {% block title %} MyLinks {% endblock title %}
 
@@ -14,24 +16,24 @@
 {% block body %} 
 <div class="container">
     <div class="span-24">
-        {% block header %}
-        <div class="horizontal-nav">
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Categories</a></li>
-                <li><a href="#">Best Of</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </div>
-        <hr>
-        <h1>
-            <span class="small quiet">HTTP://</span><em>MyLinks</em>
-        </h1>
-        <h3>
-        {% block header_title %} Title {% endblock header_title %}
-        </h3>
-        <hr>
-        {% endblock header %}
+        <header id="header">
+            {% block header %}
+            <nav>
+                <ul class="navigation">
+                    <li><a href="{{ path('buho_mylinks_home') }}">Home</a></li>
+                    <li><a href="#">Categories</a></li>
+                    <li><a href="#">Best Of</a></li>
+                    <li><a href="{{ path('buho_mylinks_about') }}">About</a></li>
+                    <li><a href="{{ path('buho_mylinks_contact') }}">Contact</a></li>
+                </ul>
+            </nav>
+            <hr>
+            <h1 id="banner">
+                <span class="small quiet"><a href="{{ path('buho_mylinks_home') }}">HTTP://<em>MyLinks/</span></a>{% block header_title %} {% endblock header_title %}</em>
+            </h1>
+            <hr>
+            {% endblock header %}
+        </header>
     </div>
     
     <div class="span-4">

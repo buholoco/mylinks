@@ -1,3 +1,17 @@
-buho_mylinks_homepage:
+buho_mylinks_home:
     pattern:  /
-    defaults: { _controller: BuhoMylinksBundle:Home:index }
+    defaults: { _controller: BuhoMylinksBundle:Page:index }
+    requirements:
+        _method:  GET
+    
+buho_mylinks_about:
+    pattern:  /about
+    defaults: { _controller: BuhoMylinksBundle:Page:about }
+    requirements:
+        _method:  GET
+    
+buho_mylinks_contact:
+    pattern:  /contact
+    defaults: { _controller: BuhoMylinksBundle:Page:contact }
+    requirements:
+        _method:  GET|POST

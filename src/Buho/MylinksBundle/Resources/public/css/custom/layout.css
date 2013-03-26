@@ -1,8 +1,10 @@
 @CHARSET "UTF-8";
 
-.horizontal-nav li {
-	display:inline;
-	list-style-type: none;
-	padding-right: 20px;
-	zoom: 1;
-}
+#banner { font-family: 'Risque', cursive; }
+
+#header ul.navigation { font-family: 'Peralta', cursive; list-style: none; text-align: right; background-color: #FFD324; margin:0;}
+#header .navigation li { display: inline;  }
+#header .navigation li a { display: inline-block; padding: 5px 15px; color: #222222; text-decoration: none }
+#header .navigation li a:hover { color: #514721; text-decoration: underline; }
+
+

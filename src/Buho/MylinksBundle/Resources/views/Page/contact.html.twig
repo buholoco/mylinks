@@ -1,0 +1,29 @@
+{% extends 'BuhoMylinksBundle::layout.html.twig' %}
+
+
+{% block header_title %}Contact{% endblock header_title %}
+
+{% block center %}
+    <header>
+        <h3>Want to contact MyLinks?</h3>
+    </header>
+
+    {% if app.session.hasFlash('success') %}
+        <div class="success">
+            {{ app.session.flash('success') }}
+        </div>
+    {% endif %}
+    
+    <form action="{{ path('buho_mylinks_contact') }}" method="post" {{ form_enctype(form) }} class="contact">
+        {{ form_errors(form) }}
+
+        {{ form_row(form.name) }}
+        {{ form_row(form.email) }}
+        {{ form_row(form.subject) }}
+        {{ form_row(form.body) }}
+
+        {{ form_rest(form) }}
+
+        <input type="submit" value="Submit" />
+    </form>
+{% endblock center %}

@@ -11,7 +11,14 @@ class PageController extends Controller
     
     public function indexAction()
     {
-        return $this->render('BuhoMylinksBundle:Page:index.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        
+        $links = $em->getRepository('BuhoMylinksBundle:Link')
+                    ->getLatestLinks();
+        
+        return $this->render('BuhoMylinksBundle:Page:index.html.twig', array(
+            'links'    =>    $links,        
+        ));
     }
     
     public function aboutAction() 

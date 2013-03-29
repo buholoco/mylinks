@@ -1,0 +1,15 @@
+{% extends 'BuhoMylinksBundle::layout.html.twig' %}
+
+{% block header_title %}{{ link.description }}{% endblock header_title %}
+
+{% block center %}
+    <article class="link">
+        <header>
+            <div class="date"><time datetime="{{ link.created|date('c') }}">{{ link.created|date('l, F j, Y') }}</time></div>
+            <h2>{{ link.description }}</h2>
+        </header>
+        <div>
+            <p>{{ link.uri }}</p>
+        </div>
+    </article>
+{% endblock center %}

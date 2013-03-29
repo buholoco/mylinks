@@ -3,11 +3,73 @@
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock title%}</title>
-        {% block stylesheets %}{% endblock stylesheets %}
+        {% block stylesheets %}
+            <link href="{{ asset('bundles/buhomylinks/css/blueprint/screen.css') }}" type="text/css" rel="stylesheet" media="screen, projection">
+            <link href="{{ asset('bundles/buhomylinks/css/blueprint/print.css') }}" type="text/css" rel="stylesheet" media="print"> 
+            <!--[if lt IE 8]>
+              <link rel="stylesheet" href="{{ asset('bundles/buhomylinks/css/blueprint/ie.css') }}" type="text/css" media="screen, projection">
+            <![endif]-->
+            <link href="{{ asset('bundles/buhomylinks/css/custom/layout.css') }}" type="text/css" rel="stylesheet" media="screen, projection">
+            <link href='http://fonts.googleapis.com/css?family=Risque' rel='stylesheet' type='text/css'>
+            <link href='http://fonts.googleapis.com/css?family=Peralta' rel='stylesheet' type='text/css'>
+        {% endblock stylesheets %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        {% block body %}{% endblock body %}
+        {% block body %}
+            <div class="container">
+                <div class="span-24">
+                    <header id="header">
+                        {% block header %}
+                        <nav>
+                            <ul class="navigation">
+                                <li><a href="{{ path('buho_mylinks_home') }}">Home</a></li>
+                                <li><a href="#">Categories</a></li>
+                                <li><a href="#">Best Of</a></li>
+                                <li><a href="{{ path('buho_mylinks_about') }}">About</a></li>
+                                <li><a href="{{ path('buho_mylinks_contact') }}">Contact</a></li>
+                            </ul>
+                        </nav>
+                        <hr>
+                        <h1 id="banner">
+                            <span class="small quiet"><a href="{{ path('buho_mylinks_home') }}">HTTP://<em>MyLinks/</span></a>{% block header_title %} {% endblock header_title %}</em>
+                        </h1>
+                        <hr>
+                        {% endblock header %}
+                    </header>
+                </div>
+                
+                <div class="span-4">
+                    {% block left %}
+                       <h4>navigation var</h4>
+                       <nav>
+                       
+                           <li><a href="#">some link</a></li>
+                           <li><a href="#">some link 2</a></li>
+                           <li><a href="#">some link 3</a></li>
+                       
+                       </nav>
+                    {% endblock left %}
+                </div>
+                <div class="span-16">
+                    {% block center %}center block{% endblock center %}
+                </div>
+                <div class="span-4 last">
+                    {% block right %}
+                       <h4>Best users</h4>
+                       <ul>
+                           <li>some link</li>
+                           <li>some link 2</li>
+                           <li>some link 3</li>
+                       </ul>
+                    {% endblock right %}
+                </div>
+                
+                <div class="span-24">
+                    {% block footer %}footer{% endblock footer %}
+                </div>
+            </div>
+        {% endblock body %}
         {% block javascripts %}{% endblock javascripts %}
     </body>
 </html>

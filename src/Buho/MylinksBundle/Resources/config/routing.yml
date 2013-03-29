@@ -15,3 +15,10 @@ buho_mylinks_contact:
     defaults: { _controller: BuhoMylinksBundle:Page:contact }
     requirements:
         _method:  GET|POST
+        
+buho_mylinks_link_show:
+    pattern:  /{id}
+    defaults: { _controller: BuhoMylinksBundle:Link:show }
+    requirements:
+        _method:  GET
+        id: \d+

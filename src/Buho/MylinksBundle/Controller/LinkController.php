@@ -17,8 +17,12 @@ class LinkController extends Controller
             throw $this->createNotFoundException('Unable to find link');
         }
         
+        $comments = $em->getRepository('BuhoMylinksBundle:Comment')
+                       ->getCommentsForLink($link->getId());
+        
         return $this->render('BuhoMylinksBundle:Link:show.html.twig', array(
-            'link'    =>    $link,     
+            'link'        =>    $link,
+            'comments'    =>    $comments,
         ));
     }
 }

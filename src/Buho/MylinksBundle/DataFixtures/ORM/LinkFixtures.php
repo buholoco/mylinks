@@ -2,11 +2,12 @@
 
 namespace Buho\MylinksBundle\DataFixtures\ORM;
 
-use Doctrine\Common\DataFixtures\FixtureInterface;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
+use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Buho\MylinksBundle\Entity\Link;
 
-class LinkFixtures implements FixtureInterface
+class LinkFixtures extends AbstractFixture implements OrderedFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
@@ -35,5 +36,14 @@ class LinkFixtures implements FixtureInterface
         $manager->persist($link3);
         
         $manager->flush();
+        
+        $this->addReference('link-1', $link1);
+        $this->addReference('link-2', $link2);
+        $this->addReference('link-3', $link3);
+    }
+    
+    public function getOrder()
+    {
+        return 1;
     }
 }

@@ -2,6 +2,7 @@
 
 namespace Buho\MylinksBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -49,6 +50,9 @@ class Link
      */
     protected $tags;
     
+    /**
+     * @ORM\OneToMany(targetEntity="Comment", mappedBy="link")
+     */
     protected $comments;
     
     protected $votes;
@@ -59,8 +63,17 @@ class Link
      */
     public function __construct()
     {
+        $this->comments = new ArrayCollection();
         $this->setCreated(new \DateTime());
         $this->setUpdated(new \DateTime());
+    }
+    
+    /**
+     * Link to string
+     */
+    public function __toString()
+    {
+        return $this->getDescription();
     }
 
     /**
@@ -194,5 +207,38 @@ class Link
     public function setUpdatedValue()
     {
         $this->setUpdated(new \DateTime());
+    }
+
+    /**
+     * Add comments
+     *
+     * @param \Buho\MylinksBundle\Entity\Comment $comments
+     * @return Link
+     */
+    public function addComment(\Buho\MylinksBundle\Entity\Comment $comments)
+    {
+        $this->comments[] = $comments;
+    
+        return $this;
+    }
+
+    /**
+     * Remove comments
+     *
+     * @param \Buho\MylinksBundle\Entity\Comment $comments
+     */
+    public function removeComment(\Buho\MylinksBundle\Entity\Comment $comments)
+    {
+        $this->comments->removeElement($comments);
+    }
+
+    /**
+     * Get comments
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getComments()
+    {
+        return $this->comments;
     }
 }

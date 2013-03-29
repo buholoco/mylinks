@@ -1,4 +1,10 @@
 {% extends '::base.html.twig' %}
 
+{% block stylesheets %}
+{{ parent() }}
+<link href="{{ asset('bundles/buhomylinks/css/custom/comment.css') }}" type="text/css" rel="stylesheet" media="screen, projection">
+<link href="{{ asset('bundles/buhomylinks/css/custom/link.css') }}" type="text/css" rel="stylesheet" media="screen, projection">
+{% endblock stylesheets %}
+
 {% block title %} MyLinks {% endblock title %}
 

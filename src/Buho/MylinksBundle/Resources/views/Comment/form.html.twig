@@ -1,0 +1,6 @@
+<form action="{{ path('buho_mylinks_comment_create', { 'link_id' : comment.link.id } ) }}" method="post" {{ form_enctype(form) }} class="link">
+    {{ form_widget(form) }}
+    <p>
+        <input type="submit" value="Submit">
+    </p>
+</form>

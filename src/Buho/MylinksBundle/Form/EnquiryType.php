@@ -17,6 +17,6 @@ class EnquiryType extends AbstractType
     
     public function getName()
     {
-        return 'contact';
+        return 'buho_mylinksbundle_enquirytype';
     }
 }

@@ -13,10 +13,6 @@ class CommentType extends AbstractType
         $builder
             ->add('email')
             ->add('comment')
-            ->add('approved')
-            ->add('created')
-            ->add('updated')
-            ->add('link')
         ;
     }
 

@@ -28,6 +28,12 @@ class Comment
     protected $email;
     
     /**
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="comments")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+    protected $user;
+    
+    /**
      * @ORM\ManyToOne(targetEntity="Link", inversedBy="comments")
      * @ORM\JoinColumn(name="link_id", referencedColumnName="id")
      */
@@ -232,5 +238,28 @@ class Comment
     public function getEmail()
     {
         return $this->email;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \Buho\MylinksBundle\Entity\User $user
+     * @return Comment
+     */
+    public function setUser(\Buho\MylinksBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+    
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Buho\MylinksBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

@@ -18,53 +18,45 @@
     <body>
         {% block body %}
             <div class="container">
-                <div class="span-24">
-                    <header id="header">
-                        {% block header %}
-                        <nav>
-                            <ul class="navigation">
-                                <li><a href="{{ path('buho_mylinks_home') }}">Home</a></li>
-                                <li><a href="#">Categories</a></li>
-                                <li><a href="#">Best Of</a></li>
-                                <li><a href="{{ path('buho_mylinks_about') }}">About</a></li>
-                                <li><a href="{{ path('buho_mylinks_contact') }}">Contact</a></li>
-                            </ul>
-                        </nav>
-                        <hr>
-                        <h1 id="banner">
-                            <span class="small quiet"><a href="{{ path('buho_mylinks_home') }}">HTTP://<em>MyLinks/</span></a>{% block header_title %} {% endblock header_title %}</em>
-                        </h1>
-                        <hr>
-                        {% endblock header %}
-                    </header>
+                <div class="span-6 grey">
+                    <div class="left-bar">
+                        <h2 id="site-name">
+                            <a href="{{ path('buho_mylinks_home') }}">My Links</a>
+                        </h2>
+                        <h4 id="current-page">
+                            {% block header_title %} {% endblock header_title %}
+                        </h4>
+                        {% block left %}
+                           <ul >
+                               <li>some link</li>
+                               <li>some link 2</li>
+                               <li>some link 3</li>
+                           </ul>
+                        {% endblock left %}
+                    </div>
                 </div>
+                <div class="span-18 last">
                 
-                <div class="span-4">
-                    {% block left %}
-                       <h4>navigation var</h4>
-                       <nav>
-                       
-                           <li><a href="#">some link</a></li>
-                           <li><a href="#">some link 2</a></li>
-                           <li><a href="#">some link 3</a></li>
-                       
-                       </nav>
-                    {% endblock left %}
-                </div>
-                <div class="span-16">
+                    {% block header %}
+                    <nav id="top-navigation">
+                        <ul>
+                            <li><a href="{{ path('buho_mylinks_home') }}">Home</a></li>
+                            <li><a href="#">Categories</a></li>
+                            <li><a href="#">Best Of</a></li>
+                            <li><a href="{{ path('buho_mylinks_about') }}">About</a></li>
+                            <li><a href="{{ path('buho_mylinks_contact') }}">Contact</a></li>
+                            {% if app.user %}
+                                <li><a href="{{ path('fos_user_profile_show') }}">Profile</a></li>
+                                <li><a href="{{ path('fos_user_security_logout') }}">Logout</a></li>
+                            {% else %}
+                                <li><a href="{{ path('fos_user_security_login') }}">Login</a></li>
+                            {% endif %}    
+                        </ul>
+                    </nav>
+                    {% endblock header %}
+                    <hr>
                     {% block center %}center block{% endblock center %}
                 </div>
-                <div class="span-4 last">
-                    {% block right %}
-                       <h4>Best users</h4>
-                       <ul>
-                           <li>some link</li>
-                           <li>some link 2</li>
-                           <li>some link 3</li>
-                       </ul>
-                    {% endblock right %}
-                </div>
-                
                 <div class="span-24">
                     {% block footer %}footer{% endblock footer %}
                 </div>

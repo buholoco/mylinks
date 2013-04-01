@@ -5,20 +5,24 @@
 {% block center %}
     {% for link in links %}
         <article class="link">
-            <div class="date"><time datetime="{{ link.created|date('c') }}">{{ link.created|date('l, F j, Y') }}</time></div>
             <header>
-                <h2><a href="{{ path('buho_mylinks_link_show', { 'id': link.id }) }}">{{ link.description }}</a></h2>
+                <div class="date"><time datetime="{{ link.created|date('c') }}">{{ link.created|date('l, F j, Y') }}</time></div>
+                <div class="link-title"><h3><a href="{{ path('buho_mylinks_link_show', { 'id': link.id }) }}">{{ link.title }}</a></h3></div>
             </header>
-
-            <div class="snippet">
-                <p>{{ link.uri }}</p>
-                <p class="continue"><a href="{{ path('buho_mylinks_link_show', { 'id': link.id }) }}">Continue reading...</a></p>
+            <div class="link-description">
+                <p>{{ link.description }}</p>
             </div>
-
             <footer class="meta">
-                <p>Comments: -</p>
-                <p>Posted by <span class="highlight">{# link.user_id #}</span> at {{ link.created|date('h:iA') }}</p>
-                <p>Tags: <span class="highlight">{{ link.tags }}</span></p>
+                <ul>
+                    <li><span class="loud">Posted by </span>{{ link.user.username }} at {{ link.created|date('h:iA') }}</li>
+                    <li><span class="loud">Tags: </span>{{ link.tags }}</li>
+                    <li>
+                        <a href="{{ path('buho_mylinks_link_show', { 'id': link.id }) }}#comments">
+                            <img src="{{ asset('bundles/buhomylinks/images/icons/49handdrawing/1364738697_comment.png') }}" width="15" height="15"> 
+                                {{ link.comments | length }}
+                        </a>
+                     </li>
+                </ul>
             </footer>
         </article>
     {% else %}

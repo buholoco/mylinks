@@ -23,11 +23,22 @@ class Link
     
     /**
      * @ORM\Column(type="string")
+     * 
+     * @var string
      */
     protected $uri;
     
     /**
      * @ORM\Column(type="string")
+     * 
+     * @var string
+     */
+    protected $title;
+    
+    /**
+     * @ORM\Column(type="string")
+     * 
+     * @var string
      */
     protected $description;
     
@@ -41,7 +52,11 @@ class Link
      */
     protected $updated;
     
-    protected $user_id;
+    /**
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="links")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+    protected $user;
     
     protected $categories;
     
@@ -240,5 +255,51 @@ class Link
     public function getComments()
     {
         return $this->comments;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \Buho\MylinksBundle\Entity\User $user
+     * @return Link
+     */
+    public function setUser(\Buho\MylinksBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+    
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Buho\MylinksBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * Set title
+     *
+     * @param string $title
+     * @return Link
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string 
+     */
+    public function getTitle()
+    {
+        return $this->title;
     }
 }

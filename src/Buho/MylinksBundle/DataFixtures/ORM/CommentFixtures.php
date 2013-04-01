@@ -14,123 +14,114 @@ class CommentFixtures extends AbstractFixture implements OrderedFixtureInterface
     public function load(ObjectManager $manager)
     {
         $comment = new Comment();
-        ////$comment->setUser('symfony');
         $comment->setEmail('test@test.com');
         $comment->setComment('To make a long story short. You can\'t go wrong by choosing Symfony! And no one has ever been fired for using Symfony.');
+        $comment->setUser($manager->merge($this->getReference('user-1')));
         $comment->setLink($manager->merge($this->getReference('link-1')));
         $manager->persist($comment);
 
         $comment = new Comment();
-        //$comment->setUser('David');
         $comment->setEmail('test2@test.com');
         $comment->setComment('To make a long story short. Choosing a framework must not be taken lightly; it is a long-term commitment. Make sure that you make the right selection!');
+        $comment->setUser($manager->merge($this->getReference('user-2')));
         $comment->setLink($manager->merge($this->getReference('link-1')));
         $manager->persist($comment);
 
         $comment = new Comment();
-        //$comment->setUser('Dade');
         $comment->setEmail('test3@test.com');
         $comment->setComment('Anything else, mom? You want me to mow the lawn? Oops! I forgot, New York, No grass.');
+        $comment->setUser($manager->merge($this->getReference('user-2')));
         $comment->setLink($manager->merge($this->getReference('link-2')));
         $manager->persist($comment);
 
         $comment = new Comment();
-        //$comment->setUser('Kate');
         $comment->setEmail('test4@test.com');
         $comment->setComment('Are you challenging me? ');
+        $comment->setUser($manager->merge($this->getReference('user-2')));
         $comment->setLink($manager->merge($this->getReference('link-2')));
-        $comment->setCreated(new \DateTime("2011-07-23 06:15:20"));
         $manager->persist($comment);
 
         $comment = new Comment();
-        //$comment->setUser('Dade');
         $comment->setEmail('test@test.com');
         $comment->setComment('Name your stakes.');
+        $comment->setUser($manager->merge($this->getReference('user-1')));
         $comment->setLink($manager->merge($this->getReference('link-2')));
-        $comment->setCreated(new \DateTime("2011-07-23 06:18:35"));
         $manager->persist($comment);
 
         $comment = new Comment();
-        //$comment->setUser('Kate');
         $comment->setEmail('test@test.com');
         $comment->setComment('If I win, you become my slave.');
+        $comment->setUser($manager->merge($this->getReference('user-1')));
         $comment->setLink($manager->merge($this->getReference('link-2')));
-        $comment->setCreated(new \DateTime("2011-07-23 06:22:53"));
         $manager->persist($comment);
 
         $comment = new Comment();
-        //$comment->setUser('Dade');
         $comment->setEmail('test3@test.com');
         $comment->setComment('Your SLAVE?');
+        $comment->setUser($manager->merge($this->getReference('user-1')));
         $comment->setLink($manager->merge($this->getReference('link-2')));
-        $comment->setCreated(new \DateTime("2011-07-23 06:25:15"));
         $manager->persist($comment);
 
         $comment = new Comment();
-        //$comment->setUser('Kate');
         $comment->setEmail('test2@test.com');
         $comment->setComment('You wish! You\'ll do shitwork, scan, crack copyrights...');
+        $comment->setUser($manager->merge($this->getReference('user-1')));
         $comment->setLink($manager->merge($this->getReference('link-2')));
-        $comment->setCreated(new \DateTime("2011-07-23 06:46:08"));
         $manager->persist($comment);
 
         $comment = new Comment();
-        //$comment->setUser('Dade');
         $comment->setEmail('test5@test.com');
         $comment->setComment('And if I win?');
+        $comment->setUser($manager->merge($this->getReference('user-2')));
         $comment->setLink($manager->merge($this->getReference('link-2')));
-        $comment->setCreated(new \DateTime("2011-07-23 10:22:46"));
         $manager->persist($comment);
 
         $comment = new Comment();
-        //$comment->setUser('Kate');
         $comment->setEmail('test3@test.com');
         $comment->setComment('Make it my first-born!');
+        $comment->setUser($manager->merge($this->getReference('user-1')));
         $comment->setLink($manager->merge($this->getReference('link-2')));
-        $comment->setCreated(new \DateTime("2011-07-23 11:08:08"));
         $manager->persist($comment);
 
         $comment = new Comment();
-        //$comment->setUser('Dade');
         $comment->setEmail('test@test.com');
         $comment->setComment('Make it our first-date!');
+        $comment->setUser($manager->merge($this->getReference('user-2')));
         $comment->setLink($manager->merge($this->getReference('link-2')));
-        $comment->setCreated(new \DateTime("2011-07-24 18:56:01"));
         $manager->persist($comment);
 
         $comment = new Comment();
-        //$comment->setUser('Kate');
         $comment->setEmail('test2@test.com');
         $comment->setComment('I don\'t DO dates. But I don\'t lose either, so you\'re on!');
+        $comment->setUser($manager->merge($this->getReference('user-2')));
         $comment->setLink($manager->merge($this->getReference('link-2')));
-        $comment->setCreated(new \DateTime("2011-07-25 22:28:42"));
         $manager->persist($comment);
 
         $comment = new Comment();
-        //$comment->setUser('Stanley');
         $comment->setEmail('test6@test.com');
         $comment->setComment('It\'s not gonna end like this.');
+        $comment->setUser($manager->merge($this->getReference('user-1')));
         $comment->setLink($manager->merge($this->getReference('link-3')));
         $manager->persist($comment);
 
         $comment = new Comment();
-        //$comment->setUser('Gabriel');
         $comment->setEmail('test2@test.com');
         $comment->setComment('Oh, come on, Stan. Not everything ends the way you think it should. Besides, audiences love happy endings.');
+        $comment->setUser($manager->merge($this->getReference('user-1')));
         $comment->setLink($manager->merge($this->getReference('link-3')));
         $manager->persist($comment);
 
         $comment = new Comment();
-        //$comment->setUser('Mile');
         $comment->setEmail('test4@test.com');
         $comment->setComment('Doesn\'t Bill Gates have something like that?');
+        $comment->setUser($manager->merge($this->getReference('user-1')));
         $comment->setLink($manager->merge($this->getReference('link-3')));
         $manager->persist($comment);
 
         $comment = new Comment();
-        //$comment->setUser('Gary');
         $comment->setEmail('test@test.com');
         $comment->setComment('Bill Who?');
+        $comment->setUser($manager->merge($this->getReference('user-1')));
         $comment->setLink($manager->merge($this->getReference('link-3')));
         $manager->persist($comment);
 
@@ -139,6 +130,6 @@ class CommentFixtures extends AbstractFixture implements OrderedFixtureInterface
 
     public function getOrder()
     {
-        return 2;
+        return 3;
     }
 }

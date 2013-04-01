@@ -1,10 +1,28 @@
 @CHARSET "UTF-8";
 
-#banner { font-family: 'Risque', cursive; }
+#site-name {text-align: right;}
+#site-name a {color:#FFFFFF; text-decoration: none;}
+#site-name a:hover {text-decoration: none;}
+#current-page {color:#CCCCCC; text-align: right; }
 
-#header ul.navigation { font-family: 'Peralta', cursive; list-style: none; text-align: right; background-color: #FFD324; margin:0;}
-#header .navigation li { display: inline;  }
-#header .navigation li a { display: inline-block; padding: 5px 15px; color: #222222; text-decoration: none }
-#header .navigation li a:hover { color: #514721; text-decoration: underline; }
+#top-navigation ul { cursive; list-style: none; text-align: right; margin:0; border-bottom: 1px dotted #111111; }
+#top-navigation li { display: inline;  }
+#top-navigation li a { display: inline-block; padding: 5px 15px; color: #222222; text-decoration: none }
+#top-navigation li a:hover { color: #514721; text-decoration: underline; }
+
+.date { margin-bottom: 20px; font-size: 14px; color: #666; line-height: 30px; float: right; }
+.link { border-bottom: 1px dotted #888888;  padding: 10px; background-color: #DDDDDD;}
+.link .meta { clear: left; margin-bottom: 20px; }
+.link .snippet p.continue { margin-bottom: 0; text-align: right; }
+.link .meta { font-style: italic; font-size: 12px; color: #666; }
+.link .meta p { margin-bottom: 5px; line-height: 1.2em; }
+.link img.large { width: 300px; min-height: 165px; }
+.link a {text-decoration:none; color:#000000;}
+.link a:hover {text-decoration:none; color:#666666;}
+
+.meta ul li { display: inline; }
+
+.grey {background:#222222; color:#fff; }
+.left-bar {padding: 20px;}
 
 

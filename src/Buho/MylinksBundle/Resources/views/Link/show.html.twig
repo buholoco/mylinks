@@ -6,10 +6,10 @@
     <article class="link">
         <header>
             <div class="date"><time datetime="{{ link.created|date('c') }}">{{ link.created|date('l, F j, Y') }}</time></div>
-            <h2>{{ link.description }}</h2>
+            <h3><a href="{{ link.uri }}" target="_blank">{{ link.title }}</a></h3>
         </header>
-        <div>
-            <p>{{ link.uri }}</p>
+        <div class="link-description">
+            <p>{{ link.description }}</p>
         </div>
     </article>
     <section class="comments" id="comments">

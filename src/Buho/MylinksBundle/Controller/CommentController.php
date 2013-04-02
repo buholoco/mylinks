@@ -34,7 +34,9 @@ class CommentController extends Controller
         $form->bind($request);
         
         if ($form->isValid()) {
-            // TODO: persist comment
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($comment);
+            $em->flush();
             
             return $this->redirect($this->generateUrl('buho_mylinks_link_show', array(
                 'id'        =>    $comment->getLink()->getId())) . 

@@ -1,0 +1,8 @@
+{% extends 'BuhoMylinksBundle::layout.html.twig' %}
+
+{% block header_title %}Add Link{% endblock header_title %}
+
+{% block center %}
+    <h3>Add link </h3>
+    {% include 'BuhoMylinksBundle:Link:form.html.twig' with { 'form': form } %}
+{% endblock center %}

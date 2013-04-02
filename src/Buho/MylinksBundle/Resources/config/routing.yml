@@ -22,6 +22,20 @@ buho_mylinks_link_show:
     requirements:
         _method:  GET
         id: \d+
+
+buho_mylinks_link_new:
+    pattern:  /link/new
+    defaults: { _controller: BuhoMylinksBundle:Link:new }
+    requirements:
+        _method:  GET
+        blog_id: \d+
+
+buho_mylinks_link_create:
+    pattern:  /link/{user_id}
+    defaults: { _controller: BuhoMylinksBundle:Link:create }
+    requirements:
+        _method:  POST
+        blog_id: \d+
         
 buho_mylinks_comment_create:
     pattern:  /comment/{link_id}

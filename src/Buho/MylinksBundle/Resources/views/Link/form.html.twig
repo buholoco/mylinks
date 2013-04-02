@@ -1,0 +1,10 @@
+{% extends 'BuhoMylinksBundle::layout.html.twig' %}
+
+{% block center %}
+<form action="{{ path('buho_mylinks_link_create', { 'user_id' : app.user.id } ) }}" method="post" {{ form_enctype(form) }} class="link">
+    {{ form_widget(form) }}
+    <p>
+        <input type="submit" value="Submit">
+    </p>
+</form>
+{% endblock center %}

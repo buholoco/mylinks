@@ -4,14 +4,13 @@
 
 {% block center %}
     {% for link in links %}
-        <article class="link">
+        <article class="link {{ cycle(['odd', 'even'], loop.index0) }}">
             <header>
                 <div class="date"><time datetime="{{ link.created|date('c') }}">{{ link.created|date('l, F j, Y') }}</time></div>
                 <div class="link-title"><h3><a href="{{ path('buho_mylinks_link_show', { 'id': link.id }) }}">{{ link.title }}</a></h3></div>
+                <div class="link-uri"><em><a href="{{ link.uri }}" target="blank">{{ link.uri }}</a></em></div>
+                <div class="link-description">{{ link.description }}</div>
             </header>
-            <div class="link-description">
-                <p>{{ link.description }}</p>
-            </div>
             <footer class="meta">
                 <ul>
                     <li><span class="loud">Posted by </span>{{ link.user.username }} at {{ link.created|date('h:iA') }}</li>

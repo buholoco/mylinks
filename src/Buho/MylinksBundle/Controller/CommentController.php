@@ -29,6 +29,7 @@ class CommentController extends Controller
         
         $comment = new Comment();
         $comment->setLink($link);
+        $comment->setUser($this->getUser());
         $request = $this->getRequest();
         $form = $this->createForm(new CommentType(), $comment);
         $form->bind($request);
